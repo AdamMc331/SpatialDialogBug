@@ -1,4 +1,4 @@
-package template.theme
+package com.adammcneilly.spatialdialog.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,8 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.cash.paparazzi)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.google.dagger.hilt)
     alias(libs.plugins.google.ksp)
     alias(libs.plugins.kotlin.android)
 }
@@ -11,7 +9,7 @@ android {
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "template.app.id"
+        applicationId = "com.adammcneilly.spatialdialog"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.compileSdk.get().toInt()
         versionCode = 1
@@ -49,7 +47,7 @@ android {
         }
     }
 
-    namespace = "template"
+    namespace = "com.adammcneilly.spatialdialog"
 }
 
 dependencies {
@@ -59,7 +57,6 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.room.runtime)
     implementation(libs.bundles.androidx.xr)
     implementation(libs.coil.compose)
     implementation(libs.coil.okhttp)
@@ -67,17 +64,12 @@ dependencies {
     implementation(libs.compose.material.icons.extended)
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling)
-    implementation(libs.hilt.android)
-    implementation(libs.square.moshi.kotlin)
-    implementation(libs.square.retrofit)
-    implementation(libs.square.retrofit.converter.moshi)
 
     debugImplementation(platform(libs.compose.bom))
     debugImplementation(libs.compose.ui.test.manifest)
     debugImplementation(libs.compose.ui.tooling)
     debugImplementation(libs.square.leakcanary)
 
-    annotationProcessor(libs.androidx.room.compiler)
 
     testImplementation(libs.junit)
 
@@ -85,13 +77,8 @@ dependencies {
     androidTestImplementation(libs.androidx.test.espresso.core)
     androidTestImplementation(libs.androidx.test.junit)
     androidTestImplementation(libs.compose.ui.test.junit)
-    androidTestImplementation(libs.hilt.android.testing)
 
-    ksp(libs.androidx.room.compiler)
-    ksp(libs.hilt.compiler)
-    ksp(libs.square.moshi.kotlin.codegen)
 
-    kspAndroidTest(libs.hilt.android.compiler)
 }
 
 tasks.formatKotlinMain {
